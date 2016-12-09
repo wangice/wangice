@@ -29,4 +29,17 @@ public class Util {
 		
 		return configMap;
 	}
+	
+	/**
+     * 将首字母转大写
+     *
+     * @param s
+     * @return
+     */
+    public static String toUpper(String s) {
+        if (Character.isUpperCase(s.charAt(0)))
+            return s;
+        else
+            return (new StringBuilder()).append(Character.toUpperCase(s.charAt(0))).append(s.substring(1)).toString();
+    }
 }
