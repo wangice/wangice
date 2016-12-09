@@ -135,5 +135,24 @@ public class HexString {
         }
         return digit;
     }
+    
+    /**
+     * 通过Integer转化为16进制
+     * @param bytes
+     * @return
+     */
+    public static String encodeHexByInteger(byte[] bytes){
+    	StringBuffer sb = new StringBuffer();
+    	String tmp = null;
+    	for (byte b : bytes) {
+    		 // 将每个字节与0xFF进行与运算，然后转化为10进制，然后借助于Integer再转化为16进制  
+			tmp = Integer.toHexString(0xFF & b);
+			if (tmp.length() == 1) {
+				tmp = "0" + tmp;
+			}
+			sb.append(tmp);
+		}
+    	return sb.toString();
+    }
 
 }
