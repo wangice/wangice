@@ -3,7 +3,8 @@ package com.ice.security;
 import java.net.InetAddress;
 import java.util.Base64;
 
-import javax.crypto.*;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import com.ice.util.HexString;
@@ -13,6 +14,7 @@ public class ThreeDesUtil {
 	private static final String Algorithm = "DESede"; // 定义 加密算法,可用
 														// DES,DESede,Blowfish
 
+	@SuppressWarnings("unused")
 	private static final byte[] keyBytes = { 0x11, 0x22, 0x4F, 0x58, (byte) 0x88, 0x10, 
 			0x40, 0x38, 0x28, 0x25, 0x79,0x51, (byte) 0xCB, (byte) 0xDD, 
 			0x55, 0x66, 0x77, 0x29, 0x74, (byte) 0x98, 0x30, 0x40, 0x36, (byte) 0xE2 }; // 24字节的密钥
@@ -95,6 +97,7 @@ public class ThreeDesUtil {
 		return s;
 	}
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		final byte[] keyBytes = { 0x11, 0x22, 0x4F, 0x58, (byte) 0x88, 0x10, 0x40, 0x38, 0x28, 0x25, 0x79, 0x51,
